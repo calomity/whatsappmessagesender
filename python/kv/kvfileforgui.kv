@@ -1,0 +1,114 @@
+#:import Factory kivy.factory.Factory
+
+<mainwindow>:
+	name: "main"
+	BoxLayout:
+		orientation: "vertical"
+		size: root.width, root.height
+        padding: 50
+        spacing: 20
+		Label:
+			text: "WMS'e hoş geldiniz, bu program istediğiniz kişiye veya kişilere mesaj göndermenizi sağlar."
+            font_size: 18
+		Button:	
+			text: "Kişiye mesaj gönder"
+            font_size: 32
+			on_release: root.gomessagesendwindow()
+        Button:
+            text: "Toplu Mesaj Gönder"
+            font_size: 32
+            on_release: root.gowholemessagesend()
+        Button:
+            font_size: 32
+            text: "Ayarlar"
+            on_release: root.gosettingswindow()            
+            
+
+<settingsmainwindow>
+    name: "settingswindow"
+    Button:
+        text: "Geri"
+        font_size:16
+        on_release: root.returnmainwindow()        
+
+<wholemessagesend>
+    name: "wholemessage"
+    auto_dismiss: False
+    size_hint: 0.6, 0.5
+    pos_hint: {"x":0.2, "top": 0.9}
+    telnos: telnolar
+    ortakmesaj: ortakgonderilenmesaj
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        Label:
+            text: "Telefon numaralarını aralarda virgül olucak şekilde giriniz!"
+            size_hint: 1, 0.5
+            font_size: 16
+        TextInput:
+            id: telnolar
+            size_hint: 1, 0.5
+            font_size: 16
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            hint_text:'905555555555,905444444444,905333333333'
+        Label:
+            text: "Herkese gönderilecek olan mesajı yazınız!"
+            size_hint: 1, 0.5
+            font_size: 16
+        TextInput:
+            id: ortakgonderilenmesaj
+            size_hint: 1, 0.5
+            font_size: 16
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            hint_text:'blabla blabla bla'
+        Button:
+            id: kaydetmebutonu
+            text: "Gönder"
+            font_size:16
+            on_release: root.kaydetmebutonunabasti()            
+        Button:
+            text: "Geri"
+            font_size:16
+            on_release: root.returnmainwindow()            
+
+
+<messagesendwindow>
+    name: "messagewindow"
+    auto_dismiss: False
+    size_hint: 0.6, 0.5
+    pos_hint: {"x":0.2, "top": 0.9}
+    title: "Mesaj gönderme"
+    telno: textinputfortelno
+    message: textinputformesaj
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        Label:
+            text: "Telefon numarasını 90+(telefonno) şeklinde giriniz!"
+            size_hint: 1, 0.5
+            font_size: 16
+        TextInput:
+            id: textinputfortelno
+            size_hint: 1, 0.5
+            font_size: 16
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            hint_text:'905555555555'
+        Label:
+            text: "Göndermek istediğiniz mesajı aşağıya yazınız!"
+            size_hint: 1, 0.5
+            font_size: 16
+        TextInput:
+            id: textinputformesaj
+            size_hint: 1, 0.5
+            font_size: 16
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            hint_text:'blabla blabla bla'
+        Button:
+            id: kaydetmebutonu
+            text: "Gönder"
+            font_size:16
+            on_release: root.kaydetmebutonunabasti()
+        Button:
+            text: "Geri"
+            font_size:16
+            on_release: root.returnmainwindow()

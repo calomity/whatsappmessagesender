@@ -1,0 +1,4 @@
+messagesend.exe {buraya 2 argument gelmesi gerekiyor 1.cisi telefon numarası 2.cisi gönderilecek mesaj}
+örnek:
+messagesend.exe 905555555555 "toplu kelime için tırnakla kullanın"
+messagesend.exe 905555555555 tekkelimeiçinböyle
